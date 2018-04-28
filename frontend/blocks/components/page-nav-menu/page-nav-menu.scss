@@ -1,0 +1,113 @@
+$menu-item-color:                 $header-color;
+$menu-item-bg-color:              transparent;
+$menu-item-active-color:          $color-base;
+$menu-item-active-bg-color:       color('white');
+
+.page-nav-menu {
+	flex: 0 0 auto;
+	
+	@include media-breakpoint-up(md) {
+		display: flex!important;
+	}
+	
+	@include media-breakpoint-down(sm) {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		@include standard-gradient-bg;
+		box-shadow: $standard-shadow;
+	}
+	
+	.menu {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		//white-space: nowrap;
+		display: flex;
+		
+		@include media-breakpoint-down(sm) {
+			border-top: 1px solid $header-color;
+			padding: 30px 0;
+		}
+	}
+	
+	&__item {
+		margin: 0;
+		padding: 0;
+		//display: inline-block;
+		//vertical-align: top;
+		
+		@include media-breakpoint-down(sm) {
+			display: block;
+		}
+	}
+	
+	&__link {
+		border-radius: 18px;
+		padding: 6px 29px 5px;
+		display: block;
+		transition: color #{$transition-time}, background-color #{$transition-time};
+		text-align: center;
+		
+		@include media-breakpoint-down(sm) {
+			border-radius: 0;
+		}
+		
+		@include link-default-style() {
+			color: $menu-item-color;
+			background-color: $menu-item-bg-color;
+		}
+		
+		@include no-touch {
+			@include link-hover-style() {
+				font-weight: 500;
+				color: $menu-item-active-color;
+				background: $menu-item-active-bg-color;
+			}
+			@include link-active-style() {
+				font-weight: 500;
+				color: $menu-item-active-color;
+				background: $menu-item-active-bg-color;
+			}
+		}
+		
+		@include touch {
+			&.touch-active {
+				@include link-default-style() {
+					font-weight: 500;
+					color: $menu-item-active-color;
+					background: $menu-item-active-bg-color;
+				}
+				@include link-hover-style() {
+					font-weight: 500;
+					color: $menu-item-active-color;
+					background: $menu-item-active-bg-color;
+				}
+				@include link-active-style() {
+					font-weight: 500;
+					color: $menu-item-active-color;
+					background: $menu-item-active-bg-color;
+				}
+			}
+		}
+	}
+	
+	&__item.active &__link {
+		@include link-default-style() {
+			font-weight: 500;
+			color: $menu-item-active-color;
+			background: $menu-item-active-bg-color;
+		}
+		@include link-hover-style() {
+			font-weight: 500;
+			color: $menu-item-active-color;
+			background: $menu-item-active-bg-color;
+		}
+		@include link-active-style() {
+			font-weight: 500;
+			color: $menu-item-active-color;
+			background: $menu-item-active-bg-color;
+		}
+	}
+}

@@ -1,0 +1,87 @@
+$link-color:                       $color-base;
+$link-hover-color:                 $link-color;
+$link-focus-color:                 $link-color;
+$link-active-color:                $link-color;
+
+$link-light-color:                 color('gray-light');
+$link-light-hover-color:           color('gray');
+$link-light-active-color:          color('gray-dark');
+
+@mixin link-default {
+	color: $link-color;
+	text-decoration: none;
+	outline: none;
+}
+
+
+a {
+	transition: color #{$transition-time};
+	
+	@include touch {
+		transition: color 0s;
+	}
+	
+	// default view
+	@include link-default-style {
+		@include link-default;
+	}
+	
+	// hover view
+	@include link-hover-style {
+		@include link-default;
+	}
+	
+	// active view
+	@include link-active-style {
+		@include link-default;
+	}
+	
+	&.text-light-gray {
+		
+		// default view
+		@include link-default-style {
+			color: $link-light-color;
+		}
+		
+		@include no-touch {
+			
+			// hover view
+			@include link-hover-style {
+				color: $link-light-hover-color;
+			}
+			
+			// active view
+			@include link-active-style {
+				color: $link-light-active-color;
+			}
+			
+		}
+		
+		@include touch {
+			
+			// hover view
+			@include link-hover-style {
+				color: $link-light-color;
+			}
+			
+			// active view
+			@include link-active-style {
+				color: $link-light-color;
+			}
+			
+			&.touch-active {
+				@include link-default-style {
+					color: $link-light-active-color;
+				}
+				@include link-hover-style {
+					color: $link-light-active-color;
+				}
+				@include link-active-style {
+					color: $link-light-active-color;
+				}
+			}
+			
+		}
+		
+	}
+}

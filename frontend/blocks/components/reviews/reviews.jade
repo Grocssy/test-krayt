@@ -1,0 +1,50 @@
+section#reviews.reviews
+	.container
+		+section-head('What our customers are saying')
+
+		-
+			var reviews = [
+			{
+				"name": "Alexandra Bullock",
+				"organisation": "Apple Inc.",
+				"photo": "photo-1.jpg",
+				"text": "The JustLanded for WordPress theme is great, super easy to use and to customize and the support is just awesome: super fast and reliable."
+			},
+			{
+				"name": "Gary Sebastian",
+				"organisation": "Apple Inc.",
+				"photo": "photo-2.jpg",
+				"text": "Very happy with the theme and incredibly easy to configure, well done! I cannot emphasize how awesome this theme and developer support are."
+			},
+			{
+				"name": "Samantha Bilbau",
+				"organisation": "Apple Inc.",
+				"photo": "photo-3.jpg",
+				"text": "Definitely a great theme and the support team are fantastic. Customer support is numero uno and ShapingRain have got this spot on. Cheers guys."
+			},
+			{
+				"name": "Gary Sebastian II",
+				"organisation": "Apple Inc.",
+				"photo": "photo-2.jpg",
+				"text": "I'm not Gary Sebastian!"
+			}
+			]
+
+		.gallery-block
+			a.btn.btn-colored.slick-nav-btn.slick-nav-btn--prev(href="javascript;")
+				+svg-icon('arrow-left')
+
+			a.btn.btn-colored.slick-nav-btn.slick-nav-btn--next(href="javascript;")
+				+svg-icon('arrow-right')
+
+			#reviews-gallery.reviews-gallery
+					- each item in reviews
+						div
+							.content-block.reviews-item
+								.text= item.text
+								.author
+									.author__photo
+										img(src="images/"+item.photo)
+									.author__info
+										.author__name= item.name
+										| #{item.organisation}

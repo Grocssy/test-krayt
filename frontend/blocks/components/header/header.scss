@@ -1,0 +1,23 @@
+$header-color:                 color('white');
+$header-bg:                    transparent;
+$header-shadow:                none;
+$header-fixed-bg:              rgba(color('black'), .7);
+$header-fixed-shadow:          $standard-shadow;
+
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	//background-color: $header-bg;
+	transition-property: box-shadow, background-color;
+	transition-duration: $transition-time;
+	@include standard-gradient-bg;
+	box-shadow: $header-shadow;
+	
+	&--fix {
+		//background-color: $header-fixed-bg;
+		box-shadow: $header-fixed-shadow;
+	}
+}

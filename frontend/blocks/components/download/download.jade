@@ -1,0 +1,48 @@
+section#download.download.standart-gradient-bg
+	.container
+		h2.text-center Download Giant App Now
+
+		-
+			var links = [
+			{
+				"title": "Download",
+				"text": "Download from app store",
+				"icon": "mac"
+			},
+			{
+				"title": "Download",
+				"text": "Download from play store",
+				"icon": "android"
+			},
+			{
+				"title": "Download",
+				"text": "Download from microsoft store",
+				"icon": "windows"
+			}
+			]
+
+		svg(style="width:0;height:0;position:absolute;")
+			linearGradient#standard-gradient(x1="0%", y1="50%", x2="100%", y2="50%")
+				stop(offset="0", stop-color="#fd712c")
+				stop(offset="100%", stop-color="#f21780")
+
+		.download-links-box
+			.row
+				- each item in links
+					.col-sm-6.col-md-4
+						a.download-link(href="#")
+							.download-link__icon-box
+
+								svg.icon.download-link__icon
+									- var maskId = 'mask-'+item.icon
+									mask(id=maskId)
+										rect(x="0", y="0", width="100%", height="100%", fill="#fff")
+										use(xlink:href='#'+item.icon, fill="#000")
+
+									use.icon__stroke(xlink:href='#'+item.icon, mask="url(#" + maskId + ")")
+									use.icon__default(xlink:href='#'+item.icon)
+									use.icon__colored(xlink:href='#'+item.icon, fill="url(#standard-gradient)")
+
+							.download-link__text
+								.h3.download-link__title= item.title
+								| #{item.text}

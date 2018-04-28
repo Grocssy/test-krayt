@@ -1,0 +1,38 @@
+.home {
+	padding: 210px 0 220px;
+	color: color('white');
+	position: relative;
+	
+	&__text-box {
+		z-index: 1;
+	}
+	
+	@include media-breakpoint-down(sm) {
+		padding: 120px 0 100px;
+	}
+	
+	@include media-breakpoint-down(xs) {
+		padding: 80px 0 30px;
+	}
+	
+	&__btn {
+		margin: 21px 0 0 3px;
+		
+		@include media-breakpoint-down(xs) {
+			margin-top: 0;
+		}
+	}
+	
+	&__pic-box {
+		@include media-breakpoint-down(sm) {
+			display: none;
+		}
+	}
+	
+	&__pic {
+		position: absolute;
+		left: -4px;
+		top: 50%;
+		margin-top: -250px;
+	}
+}

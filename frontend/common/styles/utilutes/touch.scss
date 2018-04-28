@@ -1,0 +1,11 @@
+@mixin touch() {
+	.html-touch & {
+		@content;
+	}
+}
+
+@mixin no-touch() {
+	.html-no-touch & {
+		@content;
+	}
+}

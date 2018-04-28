@@ -1,0 +1,18 @@
+section#portfolio.portfolio
+	.container
+		+section-head('Take a look at our screenshots')
+
+		- var portfolioImages = ["portfolio-01.jpg", "portfolio-02.jpg", "portfolio-03.jpg", "portfolio-04.jpg", "portfolio-05.jpg", "portfolio-06.jpg", "portfolio-07.jpg", "portfolio-01.jpg", "portfolio-02.jpg"]
+
+		.gallery-block
+			a.btn.btn-colored.slick-nav-btn.slick-nav-btn--prev(href="javascript;")
+				+svg-icon('arrow-left')
+
+			a.btn.btn-colored.slick-nav-btn.slick-nav-btn--next(href="javascript;")
+				+svg-icon('arrow-right')
+
+			#portfolio-gallery
+				each item in portfolioImages
+					div
+						.slick-slide__inner
+							img(src="images/"+item)

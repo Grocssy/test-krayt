@@ -1,0 +1,25 @@
+-
+	var menuLinks = [
+	{
+	"text": "Home",
+	"href": "#home"
+	},
+	{
+	"text": "Features",
+	"href": "#features"
+	},
+	{
+	"text": "Pricing",
+	"href": "#pricing"
+	},
+	{
+	"text": "Download Now",
+	"href": "#download"
+	}
+	]
+
+#page-nav-menu.page-nav-menu.collapse
+	ul.menu
+		- for item in menuLinks
+			li.page-nav-menu__item
+				a.page-nav-menu__link(href=item.href)= item.text

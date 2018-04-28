@@ -1,0 +1,38 @@
+$list-font-size:                          $font-size-base;
+$list-mark-font-size:                     $font-size-base;
+$list-line-height:                        $line-height-base;
+
+ul:not([class]) {
+	margin: 1em 0;
+	padding: 0;
+	list-style: none;
+	font-weight: 400;
+	font-size: $list-font-size;
+	line-height: $list-line-height;
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	li {
+		padding: 0 0 0 2.125rem;
+		margin-bottom: 0.7em;
+		position: relative;
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		
+		&:before {
+			content: '\e800';
+			@include icon-font;
+			font-size: $font-size-base;
+			line-height: 1;
+			position: absolute;
+			left: 0;
+			top: $list-font-size*$list-line-height/2; // height of li / 2
+			margin-top: -$list-mark-font-size/2; // height of mark / 2
+			color: inherit;
+		}
+	}
+}

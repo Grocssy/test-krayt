@@ -1,0 +1,14 @@
+footer#footer.footer
+	.container
+
+		- var soc = ["facebook", "twitter", "dribble", "behance"]
+		ul.footer__soc
+			- each item in soc
+				li
+					a(href="#")
+						+svg-icon(item)
+
+		.footer__copyright
+			| Copyright &copy; 2017
+			span.sep |
+			| UXSEVEN - a sister concern of codepixar.com

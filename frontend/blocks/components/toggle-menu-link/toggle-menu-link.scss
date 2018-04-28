@@ -1,0 +1,69 @@
+$toggle-menu-line-color:              $header-color;
+$toggle-menu-line-width:              25px;
+$toggle-menu-line-thickness:          3px;
+
+
+.toggle-menu-link {
+	display: none;
+	flex: none;
+	width: $toggle-menu-line-width;
+	align-self: stretch;
+	position: relative;
+	
+	div {
+		&,
+		&:before,
+		&:after {
+			position: absolute;
+			border-radius: $toggle-menu-line-thickness;
+			width: $toggle-menu-line-width;
+			height: $toggle-menu-line-thickness;
+			left: 0;
+			background-color: $toggle-menu-line-color;
+			transition-duration: $transition-time;
+		}
+		
+		& {
+			top: 50%;
+			margin-top: -$toggle-menu-line-thickness/2;
+			transition-property: background-color;
+		}
+		
+		$hyp-sqr: pow($toggle-menu-line-width/1px, 2);
+		$offsets: pow($hyp-sqr/2, 1/2) /2;
+		$offsets-in-units: round($offsets)*1px;
+		
+		&:before,
+		&:after {
+			content: '';
+			transform-origin: right;
+			transition-property: transform;
+		}
+		
+		&:before {
+			top: -$offsets-in-units;
+		}
+		
+		&:after {
+			top: $offsets-in-units;
+		}
+	}
+	
+	&.active {
+		div {
+			background-color: transparent;
+			
+			&:before {
+				transform: rotate(-45deg);
+			}
+			
+			&:after {
+				transform: rotate(45deg);
+			}
+		}
+	}
+	
+	@include media-breakpoint-down(sm) {
+		display: block;
+	}
+}

@@ -1,0 +1,23 @@
+.features__demo {
+	padding: 170px 0 168px;
+	
+	@include media-breakpoint-down(sm) {
+		padding: 80px 0;
+	}
+	
+	@include media-breakpoint-down(xs) {
+		padding: 40px 0;
+	}
+	
+	&-pic {
+		position: absolute;
+		top: 50%;
+		margin-top: -377px;
+		left: -374px;
+	}
+	
+	&-content {
+		position: relative;
+		z-index: 1;
+	}
+}

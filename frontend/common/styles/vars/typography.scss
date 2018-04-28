@@ -1,0 +1,40 @@
+// common
+
+$font-family-roboto:          'Roboto', sans-serif;
+$font-family-dosis:           'Dosis', sans-serif;
+$font-family-fontello:        'fontello';
+
+$font-family-base:            $font-family-roboto;
+
+$color-base:                  color('gray-dark');
+
+$font-size-base-px:           14px;
+$font-size-lg-px:             18px;
+
+$font-size-base:              px2rem($font-size-base-px);
+$font-size-lg:                px2rem($font-size-lg-px);
+
+$line-height-base-px:         24px;
+$line-height-base:            $line-height-base-px/$font-size-base-px;
+
+$font-weight-base:            300;
+
+// headings
+$headings-font-family:        $font-family-dosis;
+
+$font-size-h1:                px2rem(54px);
+$font-size-h2:                px2rem(36px);
+$font-size-h3:                px2rem(30px);
+$font-size-h4:                px2rem(24px);
+$font-size-h5:                px2rem(20px);
+
+$font-size-h1-xs:             px2rem(32px);
+$font-size-h2-xs:             px2rem(28px);
+$font-size-h3-xs:             px2rem(24px);
+$font-size-h4-xs:             px2rem(20px);
+
+$line-height-h1:              1.11111;
+$line-height-h2:              1;
+$line-height-h3:              1;
+$line-height-h4:              1;
+$line-height-h5:              1.2;

@@ -1,0 +1,20 @@
+.features__demo
+	.row
+		.col-md-6.d-none.d-md-block
+			img.features__demo-pic(src="images/features.png")
+
+		.col-sm-9.col-md-6
+			.features__demo-content
+				h2.mt-0 We don’t leave you stranded
+				.mb-3.mb-md-7 Everyone’s reasons for learning user interface design are different. If you’re already a developer, or a PM, or a UX designer, why develop this totally separate skill?
+				.mb-3 Everyone’s reasons for learning user interface design are different. If you’re already a developer, or a PM, or a UX designer, why develop this totally separate skill? If you’re already a developer, or a PM, or a UX designer.
+
+				-
+					var demoList = [
+						"Unlimited colors: banner with images, slider or video",
+						"Fully Responsive and powered by HTML5 and CSS3",
+						"Very easy to customize : set up in minutes"
+					]
+				ul
+					- each item in demoList
+						li= item

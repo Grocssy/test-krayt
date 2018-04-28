@@ -1,0 +1,22 @@
+@function px2rem($px, $context: $font-size-root) {
+	@if (unitless($px)) {
+		$px: $px * 1px;
+	}
+	
+	@return $px / $context * 1rem;
+}
+
+@function rem2px($rem, $context: $font-size-root) {
+	@if (unitless($rem)) {
+		$px: $rem * 1rem;
+	}
+	
+	@return $rem / 1rem * $context;
+}
+
+@mixin standard-gradient-bg {
+	background-image: $standart-gradient;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}

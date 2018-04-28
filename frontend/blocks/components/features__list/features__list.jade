@@ -1,0 +1,44 @@
+-
+	var featList = [
+	{
+		"title": "Sell any product online",
+		"icon": "label",
+		"text": "Over 92% of computers are infected with Adware and spyware. Such software is rarely accompanied"
+	},
+	{
+		"title": "Very easy to customize",
+		"icon": "gear",
+		"text": "Many of us are so used to working on a computer desktop that when it comes time to purchase a new computer"
+	},
+	{
+		"title": "Unlimited colors",
+		"icon": "brush",
+		"text": "Audio player software is used to play back sound recordings in one of the many formats available for computers today"
+	},
+	{
+		"title": "Responsive, HTML5, CSS3",
+		"icon": "spray",
+		"text": "Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops"
+	},
+	{
+		"title": "Designed to convert",
+		"icon": "document",
+		"text": "If you are looking for a new way to promote your business that won’t cost you more money, maybe printing"
+	},
+	{
+		"title": "With no boundaries",
+		"icon": "lifebuoy",
+		"text": "Now, if you are interested in being the best player, getting really good money and knowing"
+	}
+	]
+
+.features__list
+	.row
+		- each item in featList
+			.col-sm-6.col-md-4
+				.features-item
+					.features-item__icon
+						+svg-icon(item.icon)
+					.features-item__content
+						h4.features-item__title= item.title
+						.features-item__text= item.text

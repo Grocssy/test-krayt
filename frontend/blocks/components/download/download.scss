@@ -1,0 +1,126 @@
+$download-icon-color:                   color('gray');
+$download-icon-height:                  56px;
+$download-icon-stroke-width:            3px;
+
+.download {
+	
+	h2 {
+		color: color('white');
+		margin-top: 0;
+		font-weight: 500;
+		margin-bottom: 2.361em;
+	}
+	
+	&-links-box {
+		margin-bottom: -$grid-gutter-width;
+	}
+	
+	&-link {
+		background-color: color('white');
+		border-radius: 2px;
+		position: relative;
+		overflow: hidden;
+		height: 115px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		margin-bottom: $grid-gutter-width;
+		
+		&__icon-box {
+			flex: none;
+			background-color: color('gray-lightest');
+			width: 115px;
+			align-self: stretch;
+			position: relative;
+			
+			@include media-breakpoint-only(md) {
+				width: 80px;
+			}
+			
+			@include media-breakpoint-down(xs) {
+				width: 80px;
+			}
+		}
+		
+		&__icon {
+			width: 100%;
+			height: $download-icon-height;
+			top: 50%;
+			left: 0;
+			margin-top: -$download-icon-height/2;
+			position: absolute;
+			
+			.icon {
+				
+				&__stroke {
+					stroke: lighten(color('black'), 90%);
+					stroke-width: $download-icon-stroke-width*2;
+				}
+				&__default {
+					fill: $download-icon-color;
+				}
+				&__colored {
+					transition: fill-opacity #{$transition-time};
+				}
+			}
+		}
+		
+		&__text {
+			flex: 1 1 auto;
+			padding: 18px;
+		}
+		
+		&__title {
+			margin-bottom: 7px;
+		}
+		
+		
+		
+		@include link-default-style {
+			.icon__colored {
+				fill-opacity: 0;
+			}
+		}
+		
+		@include no-touch {
+			
+			@include link-hover-style {
+				.icon__colored {
+					fill-opacity: 1;
+				}
+			}
+			@include link-active-style {
+				.icon__colored {
+					fill-opacity: 1;
+				}
+			}
+		}
+		
+		@include touch {
+			
+			.icon__colored {
+				transition-duration: 0s;
+			}
+			
+			&.touch-active {
+				
+				@include link-default-style {
+					.icon__colored {
+						fill-opacity: 1;
+					}
+				}
+				@include link-hover-style {
+					.icon__colored {
+						fill-opacity: 1;
+					}
+				}
+				@include link-active-style {
+					.icon__colored {
+						fill-opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}

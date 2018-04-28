@@ -1,0 +1,21 @@
+@mixin link-default-style() {
+	&,
+	&:focus {
+		@content;
+	}
+}
+
+@mixin link-hover-style() {
+	&:hover,
+	&:focus:hover {
+		@content;
+	}
+}
+
+@mixin link-active-style() {
+	&:active,
+	&:active:focus,
+	&:active:hover {
+		@content;
+	}
+}

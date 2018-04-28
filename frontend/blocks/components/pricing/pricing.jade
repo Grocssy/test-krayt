@@ -1,0 +1,68 @@
+-
+	var priceList = [
+	{
+		"name": "Basic",
+		"price": "12.0",
+		"services": [
+		"One User",
+			"Multiple Access",
+			"SMS Support",
+			"24/7 Online Support"
+		]
+	},
+	{
+		"name": "Standard",
+		"price": "24.0",
+		"services": [
+			"Five User",
+			"Multiple Access",
+			"SMS Support",
+			"24/7 Online Support"
+		]
+	},
+	{
+		"name": "Premium",
+		"price": "250.0",
+		"services": [
+			"Twenty User",
+			"Multiple Access",
+			"SMS Support",
+			"24/7 Online Support"
+		]
+	},
+	{
+		"name": "Enterprise",
+		"price": "999.0",
+		"services": [
+			"Unlimited User",
+			"Multiple Access",
+			"SMS Support",
+			"24/7 Online Support"
+		]
+	}
+	]
+
+section#pricing.pricing
+	.container
+		+section-head("We've got the perfect package for you")
+		.row
+			- each item in priceList
+				.col-sm-6.col-md-3.mb-3.d-flex.align-items-stretch
+					.content-block.price-item
+						.price-item__top
+							.price-item__name
+								h5= item.name
+							.price-item__price
+								span.align-top.currency $
+								span.big= item.price
+								span.align-bottom /m
+							.price-item__services
+								ul.price-item__services-list
+									- each service in item.services
+										li= service
+						.price-item__bottom
+							.price-item__trial-block
+								a.text-light-gray(href="#") Start Free Trial
+							.price-item__buy-block
+								a.btn.btn-colored.buy-link(href="#")
+									span Buy Now

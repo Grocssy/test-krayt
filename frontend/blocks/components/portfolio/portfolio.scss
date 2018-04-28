@@ -1,0 +1,47 @@
+.portfolio {
+	background-color: color('gray-lightest');
+	padding: 115px 0 114px;
+	
+	@include media-breakpoint-down(sm) {
+		padding: 80px 0;
+	}
+	
+	@include media-breakpoint-down(xs) {
+		padding: 40px 0;
+	}
+	
+	.gallery-block {
+		position: relative;
+	}
+	
+	.slick-track {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	
+	.slick-slide {
+		position: relative;
+		transition: z-index 0s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		&__inner {
+			flex: none;
+			width: 360px;
+			transition: padding $transition-time;
+			
+			@include media-breakpoint-down(xs) {
+				width: 200px;
+			}
+		}
+		
+		img {
+			display: block;
+			max-width: 100%;
+		}
+	}
+}

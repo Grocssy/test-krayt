@@ -1,0 +1,22 @@
+section#home.home.standart-gradient-bg
+	.container
+		.row
+			.col-sm-9.col-md-6.home__text-box
+				h1.mt-0 A Powerful & Unique App&nbsp;Landing Template
+				| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+				-
+					var advantages = [
+						"Unlimited colors: banner with images, slider or video",
+						"Fully Responsive and powered by HTML5 and CSS3",
+						"Very easy to customize : set up in minutes"
+					]
+
+				ul
+					- each item in advantages
+						li= item
+
+				a.btn.btn-mono.home__btn.js-scroll-to-target(href="#features") Start Exploring Us
+
+			.col-md-6.home__pic-box
+				img.home__pic(src="images/home.png")

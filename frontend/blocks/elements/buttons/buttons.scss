@@ -1,0 +1,229 @@
+$btn-height:                      40px;
+$btn-border-width:                1px;
+$btn-font-size:                   $font-size-base;
+$btn-line-height:                 $line-height-base;
+
+// mono
+$btn-mono-bg-color:               color('white');
+$btn-mono-color:                  $color-base;
+$btn-mono-shadow:                 0 0 0 5px rgba(color('black'), .1);
+$btn-mono-border-color:           transparent;
+
+$btn-mono-hover-bg-color:         $btn-mono-bg-color;
+$btn-mono-hover-color:            $btn-mono-color;
+$btn-mono-hover-shadow:           0 0 5px 5px rgba(color('black'), .1);
+$btn-mono-border-hover-color:     $btn-mono-border-color;
+
+$btn-mono-active-bg-color:        $btn-mono-hover-bg-color;
+$btn-mono-active-color:           $btn-mono-hover-color;
+$btn-mono-active-shadow:          0 0 5px 5px rgba(color('black'), .2);
+$btn-mono-border-active-color:    $btn-mono-border-color;
+
+
+// colored
+$btn-colored-bg-color:            color('white');
+$btn-colored-color:               $color-base;
+$btn-colored-shadow:              0 0 0 1px color('gray-lighter');
+$btn-colored-border-color:        color('gray-lighter');
+
+$btn-colored-hover-bg-color:      $btn-colored-bg-color;
+$btn-colored-hover-color:         color('white');
+$btn-colored-hover-shadow:        0 0 0 3px rgba(color('black'), .1);
+$btn-colored-hover-border-color:  transparent;
+
+$btn-colored-active-bg-color:     $btn-colored-hover-bg-color;
+$btn-colored-active-color:        $btn-colored-hover-color;
+$btn-colored-active-shadow:       0 0 4px 4px rgba(color('black'), .2);
+$btn-colored-active-border-color: $btn-colored-hover-border-color;
+
+button {
+	outline: none;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+	}
+}
+
+.btn {
+	font-family: $font-family-roboto;
+	font-weight: 500;
+	border-width: $btn-border-width;
+	font-size: $btn-font-size;
+	line-height: $btn-line-height;
+	padding: ($btn-height - $btn-border-width*2 - rem2px($btn-font-size*$btn-line-height))/2 40px;
+	border-radius: $btn-height/2;
+	transition-property: background-color, color, box-shadow, border-color;
+	transition-duration: #{$transition-time};
+	
+	&-mono {
+		
+		@include link-default-style() {
+			background-color: $btn-mono-bg-color;
+			color: $btn-mono-color;
+			box-shadow: $btn-mono-shadow;
+			border: 1px solid #{$btn-mono-border-color};
+		}
+		
+		@include no-touch {
+			
+			@include link-hover-style() {
+				background-color: $btn-mono-hover-bg-color;
+				color: $btn-mono-hover-color;
+				box-shadow: $btn-mono-hover-shadow;
+				border-color: $btn-mono-border-hover-color;
+			}
+			
+			@include link-active-style() {
+				background-color: $btn-mono-active-bg-color;
+				color: $btn-mono-active-color;
+				box-shadow: $btn-mono-active-shadow;
+				border-color: $btn-mono-border-active-color;
+			}
+			
+		}
+		
+		@include touch {
+			
+			@include link-hover-style() {
+				background-color: $btn-mono-bg-color;
+				color: $btn-mono-color;
+				box-shadow: $btn-mono-shadow;
+				border-color: $btn-mono-border-color;
+			}
+			
+			@include link-active-style() {
+				background-color: $btn-mono-bg-color;
+				color: $btn-mono-color;
+				box-shadow: $btn-mono-shadow;
+				border-color: $btn-mono-border-color;
+			}
+			
+			&.touch-active {
+				
+				@include link-default-style() {
+					background-color: $btn-mono-active-bg-color;
+					color: $btn-mono-active-color;
+					box-shadow: $btn-mono-active-shadow;
+					border-color: $btn-mono-border-active-color;
+				}
+				
+				@include link-hover-style() {
+					background-color: $btn-mono-active-bg-color;
+					color: $btn-mono-active-color;
+					box-shadow: $btn-mono-active-shadow;
+					border-color: $btn-mono-border-active-color;
+				}
+				
+				@include link-active-style() {
+					background-color: $btn-mono-active-bg-color;
+					color: $btn-mono-active-color;
+					box-shadow: $btn-mono-active-shadow;
+					border-color: $btn-mono-border-active-color;
+				}
+			}
+			
+		}
+	}
+	
+	&-colored {
+		position: relative;
+		
+		&:before {
+			content: '';
+			position: absolute;
+			top: -$btn-border-width;
+			bottom: -$btn-border-width;
+			left: -$btn-border-width;
+			right: -$btn-border-width;
+			@include standard-gradient-bg;
+			transition: opacity #{$transition-time};
+			opacity: 0;
+			border-radius: inherit;
+		}
+		
+		span {
+			position: relative;
+		}
+		
+		@include link-default-style() {
+			background-color: $btn-colored-bg-color;
+			color: $btn-colored-color;
+			box-shadow: $btn-colored-shadow;
+		}
+		
+		@include no-touch {
+			
+			@include link-hover-style() {
+				background-color: $btn-colored-hover-bg-color;
+				color: $btn-colored-hover-color;
+				box-shadow: $btn-colored-hover-shadow;
+				
+				&:before {
+					opacity: 1;
+				}
+			}
+			
+			@include link-active-style() {
+				background-color: $btn-colored-active-bg-color;
+				color: $btn-colored-active-color;
+				box-shadow: $btn-colored-active-shadow;
+				
+				&:before {
+					opacity: 1;
+				}
+			}
+			
+		}
+		
+		@include touch {
+			
+			@include link-hover-style() {
+				background-color: $btn-colored-bg-color;
+				color: $btn-colored-color;
+				box-shadow: $btn-colored-shadow;
+			}
+			
+			@include link-active-style() {
+				background-color: $btn-colored-bg-color;
+				color: $btn-colored-color;
+				box-shadow: $btn-colored-shadow;
+			}
+			
+			&.touch-active {
+				
+				@include link-default-style() {
+					background-color: $btn-colored-active-bg-color;
+					color: $btn-colored-active-color;
+					box-shadow: $btn-colored-active-shadow;
+					
+					&:before {
+						opacity: 1;
+					}
+				}
+				
+				@include link-hover-style() {
+					background-color: $btn-colored-active-bg-color;
+					color: $btn-colored-active-color;
+					box-shadow: $btn-colored-active-shadow;
+					
+					&:before {
+						opacity: 1;
+					}
+				}
+				
+				@include link-active-style() {
+					background-color: $btn-colored-active-bg-color;
+					color: $btn-colored-active-color;
+					box-shadow: $btn-colored-active-shadow;
+					
+					&:before {
+						opacity: 1;
+					}
+				}
+			}
+			
+		}
+	}
+}

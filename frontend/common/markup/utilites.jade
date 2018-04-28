@@ -1,0 +1,11 @@
+mixin svg-icon(name)
+	svg(class="icon icon-" + name)
+		use(xlink:href='#' + name)
+
+mixin section-head(title)
+	.section-head
+		.row
+			.col-md-8.mx-auto
+				.text-center
+					h2.mt-0= title
+					| Everyone’s reasons for learning user interface design are different. If you’re already a developer, or a PM, or a UX designer, why develop this totally separate skill?

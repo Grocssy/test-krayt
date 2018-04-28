@@ -1,0 +1,30 @@
+$base-colors: (
+	"white":          #fff,
+	"black":          #000,
+	"pink":           #f21780,
+	"pink-light":     #f31f79,
+	"orange":         #fd712c
+);
+
+$grays-colors: (
+	"gray-dark":      #222,
+	"gray":           #777,
+	"gray-light":     #aaa,
+	"gray-lighter":   #eee,
+	"gray-lightest":  #f7fafc
+);
+
+//$theme-colors: (
+//	"primary":        map_get($base-colors, "pink"),
+//	"info":           map_get($base-colors, "pink-light"),
+//	"success":        map_get($base-colors, "orange")
+//);
+
+$colors: ();
+$colors: map-merge($base-colors, $colors);
+$colors: map-merge($grays-colors, $colors);
+//$colors: map-merge($theme-colors, $colors);
+
+@function color($color) {
+	@return map-get($colors, $color);
+}
